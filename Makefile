@@ -17,16 +17,16 @@ include $(DEVKITXENON)/rules
 #---------------------------------------------------------------------------------
 TARGET		:=  $(notdir $(CURDIR))
 BUILD		:=  build
-SOURCES		:=  src 
+SOURCES		:=  src
 DATA		:=  data
-INCLUDES	:=  include 
-SDLINC		:=  /usr/local/xenon/usr/include/SDL/
+INCLUDES	:=  include
+SDLINC		:=  $(DEVKITXENON)/usr/include/SDL/
 
 #---------------------------------------------------------------------------------
 # options for code generation
 #---------------------------------------------------------------------------------
 
-CFLAGS	= -ffunction-sections -fdata-sections  -mno-altivec -mhard-float -mcpu=cell -mtune=cell -m32 -fno-pic -mpowerpc64 -g -O2 -Wall -DSDL -DXENON $(MACHDEP) $(INCLUDE) 
+CFLAGS	= -ffunction-sections -fdata-sections  -mno-altivec -mhard-float -mcpu=cell -mtune=cell -m32 -fno-pic -mpowerpc64 -g -O2 -Wall -DSDL -DXENON $(MACHDEP) $(INCLUDE)
 CXXFLAGS	=	$(CFLAGS)
 
 LDFLAGS	=	-g $(MACHDEP) -Wl,--gc-sections -Wl,-Map,$(notdir $@).map
